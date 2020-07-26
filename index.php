@@ -44,7 +44,3 @@ require_once("Libraries/Core/Autoload.php");
 require_once("Libraries/Core/Load.php");
 //Fin de la comunicacion con los controladores
 
-// echo "<br>";
-// echo "controlador: ".$controller ."<br>";
-// echo "método: ".$method ."<br>";
-// echo "parametros: ".$params;
