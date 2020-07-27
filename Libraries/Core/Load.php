@@ -1,5 +1,6 @@
 <?php
 
+$controller = ucfirst($controller);
 $controllerFile = "Controllers/".$controller.".php";
     if(file_exists($controllerFile))
     {

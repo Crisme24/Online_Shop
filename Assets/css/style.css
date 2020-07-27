@@ -1,0 +1,8 @@
+.app-sidebar__user-avatar {
+    width: 48px;
+    background: darkgray;
+    padding: 2px;
+    object-fit: cover;
+    object-position: center center;
+
+}
