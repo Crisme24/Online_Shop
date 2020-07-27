@@ -4,5 +4,19 @@
     padding: 2px;
     object-fit: cover;
     object-position: center center;
+}
 
+.app-sidebar__toggle {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15pt;
+}
+
+.app-sidebar__toggle::before {
+    display: none;
 }

@@ -25,7 +25,7 @@
   --white: #FFF;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #666666;
+  --primary: #0000000;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -2626,7 +2626,7 @@ fieldset:disabled a.btn {
 .btn-primary:hover {
   color: #FFF;
   background-color: #007065;
-  border-color: #666666;
+  border-color: #000000;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2906,14 +2906,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #666666;
-  border-color: #666666;
+  color: #000000 !important;
+  border-color: #000000 !important;
 }
 
 .btn-outline-primary:hover {
   color: #FFF;
-  background-color: #666666;
-  border-color: #666666;
+  background-color: #000000 !important;
+  border-color: #000000;
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
@@ -2922,15 +2922,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #666666;
+  color: #000000;
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #FFF;
-  background-color: #666666;
-  border-color: #666666;
+  background-color: #000000;
+  border-color: #000000;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -11857,7 +11857,7 @@ body.stop-scrolling {
   overflow: hidden;
   padding: 0 10px;
   max-height: 0;
-  webkit-transition: padding 0.15s, max-height 0.15s;
+  -webkit-transition: padding 0.15s, max-height 0.15s;
   -webkit-transition: padding 0.15s, max-height 0.15s;
   -o-transition: padding 0.15s, max-height 0.15s;
   transition: padding 0.15s, max-height 0.15s;
@@ -11866,7 +11866,7 @@ body.stop-scrolling {
 .sweet-alert .sa-error-container.show {
   padding: 10px 0;
   max-height: 100px;
-  webkit-transition: padding 0.2s, max-height 0.2s;
+  -webkit-transition: padding 0.2s, max-height 0.2s;
   -webkit-transition: padding 0.25s, max-height 0.25s;
   -o-transition: padding 0.25s, max-height 0.25s;
   transition: padding 0.25s, max-height 0.25s;
@@ -15640,7 +15640,6 @@ be a descendant of the grid when it is being dragged.
 .animated-checkbox input[type="checkbox"] + .label-text:before {
   content: "";
   font-family: "FontAwesome";
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -15685,7 +15684,6 @@ be a descendant of the grid when it is being dragged.
 .animated-radio-button input[type="radio"] + .label-text:before {
   content: "";
   font-family: "FontAwesome";
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -15765,7 +15763,6 @@ be a descendant of the grid when it is being dragged.
 .toggle input[type="checkbox"] + .button-indecator:before {
   content: "";
   font-family: "FontAwesome";
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

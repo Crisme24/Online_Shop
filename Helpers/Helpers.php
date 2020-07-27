@@ -32,6 +32,13 @@ function dep($data)
     return $format;
 }
 
+function getModal(string $nameModal, $data)
+{
+    $view_modal = "Views/Template/Modals/{$nameModal}.php";
+    //var_dump($view_modal);
+    require_once $view_modal;
+}
+
 //Elimina exceso de espacios entre palabras
 function strClean($strCadena)
 {
