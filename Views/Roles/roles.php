@@ -13,10 +13,27 @@
           <li class="breadcrumb-item"><a href="<?= base_url(); ?>/roles"><?php echo $data['page_title']; ?></a></li>
         </ul>
       </div>
+
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile-body">User Roles</div>
+            <div class="tile-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="tableRoles">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>DESCRIPTION</th>
+                      <th>STATUS</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
