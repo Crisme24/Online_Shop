@@ -20,3 +20,13 @@
 .app-sidebar__toggle::before {
     display: none;
 }
+
+.headerRegister {
+    background-color: #666666;
+    color: #fff;
+}
+
+.headerUpdate{
+    background-color: #666666;
+    color: #fff;
+}

@@ -55,11 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 {
                     $('#modalFormRol').modal("hide");
                     formRol.reset();
-                    swal("Success", objData.msg, "success");
+                    swal("User Roles", objData.msg, "success");
                     tableRoles.api().ajax.reload(function(){
-                        fntEditRol();
-                        fntDelRol();
-                        fntPermisos();
                     });
                 }else {
                     swal("Error", objData.msg, "error")
@@ -74,5 +71,29 @@ $('#tableRoles').DataTable();
 
 
 function openModal() {
+    document.querySelector('#idRol').value = "";
+    document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
+    document.querySelector('#btnActionForm').classList.replace("btn-outline-info", "btn-outline-success");
+    document.querySelector('#btnText').innerHTML = "Save";
+    document.querySelector('#titleModal').innerHTML = "New Role";
+    document.querySelector("#formRol").reset();
     $('#modalFormRol').modal('show');
+}
+
+window.addEventListener('load', function() {
+    fntEditRol();
+}, false);
+
+function fntEditRol() {
+    var btnEditRol = document.querySelectorAll(".btnEditRol");
+    btnEditRol.forEach(function(btnEditRol) {
+        btnEditRol.addEventListener('click', function() {
+
+            document.querySelector('#titleModal').innerHTML = "Edit Role";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-outline-success", "btn-outline-info");
+            document.querySelector('#btnText').innerHTML = "Edit";
+            $('#modalFormRol').modal('show');
+        })
+    });
 }
