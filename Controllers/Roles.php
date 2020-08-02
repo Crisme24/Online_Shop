@@ -46,6 +46,26 @@ class Roles extends Controllers
         die();
     }
 
+    public function getRol(int $id)
+    {
+        $intId = intval(strClean($id));
+
+        if($intId > 0)
+        {
+            $arrData = $this->model->selectRol($intId);
+
+            if(empty($arrData))
+            {
+                $arrResponse = array('status' => false, 'msg' => "Unable to update role");
+            }else {
+                $arrResponse = array('status' => true, 'data' => $arrData);
+            }
+
+            echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+        }
+        die();
+    }
+
     public function setRol()
     {
         //dep($_POST);

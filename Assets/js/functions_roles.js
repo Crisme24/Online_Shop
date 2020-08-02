@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Nuevo Rol
     var formRol = document.querySelector('#formRol');
-    formRol.onsubmit = function(e) {
+    formRol.onsubmit = function(e){
         e.preventDefault();//Prevenir que se recarge el formulario o la pagina
 
         var strNombre = document.querySelector('#txtNombre').value;
@@ -93,7 +93,46 @@ function fntEditRol() {
             document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
             document.querySelector('#btnActionForm').classList.replace("btn-outline-success", "btn-outline-info");
             document.querySelector('#btnText').innerHTML = "Edit";
-            $('#modalFormRol').modal('show');
-        })
+
+            // $('#modalFormRol').modal('show');
+
+            var id = this.getAttribute("rl");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');//Averiguamos si estamos en un navegador Chrom o firefox
+            var ajaxUser = base_url+'/Roles/getRol/'+id;
+            request.open("GET", ajaxUser, true);
+            request.send();
+
+            request.onreadystatechange = function() {
+                if(request.readyState == 4 && request.status == 200) {
+
+                    //console.log(request.responseText);
+                    var objData = JSON.parse(request.responseText);
+
+                    if(objData.status)
+                    {
+                        //document.querySelector("#idRol").value = objData.data.id;
+                        document.querySelector("#txtNombre").value = objData.data.name;
+                        document.querySelector("#txtDescripcion").value = objData.data.description;
+
+                        if(objData.data.status == 1)
+                        {
+                            var optionSelect = '<option value="1" selected class="notBlock">Active</option>';
+                        }else {
+                            var optionSelect = '<option value="2" selected class="notBlock">Inactive</option>';
+                        }
+
+                        var htmlSelect = `${optionSelect}
+                                            <option value="1">Active</option>
+                                            <option value="2">Inactive</option>
+                                         `;
+                        document.querySelector("#listStatus").innerHTML = htmlSelect;
+                        $('#modalFormRol').modal('show');
+                    }else {
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+
+        });
     });
 }

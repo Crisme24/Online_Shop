@@ -20,6 +20,14 @@ class RolesModel extends Mysql
         return $request;
     }
 
+    public function selectRol(int $id)
+    {
+        $this->intId = $id;
+        $sql = "SELECT * FROM role WHERE id = $this->intId";
+        $request = $this->select($sql);
+        return $request;
+    }
+
     public function insertRol(string $rol, string $descripcion, int $status)
     {
         $return = "";

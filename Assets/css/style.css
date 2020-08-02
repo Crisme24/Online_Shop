@@ -22,11 +22,15 @@
 }
 
 .headerRegister {
-    background-color: #666666;
+    background-color: #007d71;
     color: #fff;
 }
 
 .headerUpdate{
-    background-color: #666666;
+    background-color: #009688;
     color: #fff;
+}
+
+.notBlock {
+    display: none;
 }
