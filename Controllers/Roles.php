@@ -70,15 +70,30 @@ class Roles extends Controllers
     {
         //dep($_POST);
 
+        $intId = intval($_POST['idRol']);
         $strRol = strClean($_POST['txtNombre']); //la funcion de strClean la creamos en los helpers para que limpie los caracteres
         $strDescripcion = strClean($_POST['txtDescripcion']);
         $intStatus = intval($_POST['listStatus']);
 
-        $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
+        if($intId == 0)
+        {
+            //Crear
+            $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
+            $option = 1;
+        }else {
+            //Actualizar
+            $request_rol = $this->model->updateRol($intId, $strRol, $strDescripcion, $intStatus);
+            $option = 2;
+        }
 
         if($request_rol > 0)
         {
-            $arrResponse = array("status" => true, "msg" => "Role saved successfully");
+            if($option == 1)
+            {
+                $arrResponse = array("status" => true, "msg" => "Role saved successfully");
+            }else{
+                $arrResponse = array("status" => true, "msg" => "Role updated successfully");
+            }
 
         }elseif ($request_rol == "exist")
         {

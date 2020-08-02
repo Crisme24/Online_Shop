@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     formRol.onsubmit = function(e){
         e.preventDefault();//Prevenir que se recarge el formulario o la pagina
 
+        var intId = document.querySelector('#idRol').value;
         var strNombre = document.querySelector('#txtNombre').value;
         var strDescripcion = document.querySelector('#txtDescripcion').value;
         var intStatus = document.querySelector('#listStatus').value;
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         request.send(formData);
         request.onreadystatechange = function()
         {
-            if(request.readysState == 4 && request.status == 200) {
+            if(request.readyState == 4 && request.status == 200) {
                 //console.log(request.responseText);
 
                 var objData = JSON.parse(request.responseText); //convertir un array en un objeto de JS
@@ -98,8 +99,8 @@ function fntEditRol() {
 
             var id = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');//Averiguamos si estamos en un navegador Chrom o firefox
-            var ajaxUser = base_url+'/Roles/getRol/'+id;
-            request.open("GET", ajaxUser, true);
+            var ajaxUrl = base_url+'/Roles/getRol/'+id;
+            request.open("GET", ajaxUrl, true);
             request.send();
 
             request.onreadystatechange = function() {
@@ -110,7 +111,7 @@ function fntEditRol() {
 
                     if(objData.status)
                     {
-                        //document.querySelector("#idRol").value = objData.data.id;
+                        document.querySelector("#idRol").value = objData.data.id;
                         document.querySelector("#txtNombre").value = objData.data.name;
                         document.querySelector("#txtDescripcion").value = objData.data.description;
 
