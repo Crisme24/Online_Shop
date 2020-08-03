@@ -70,7 +70,7 @@ class Roles extends Controllers
     {
         //dep($_POST);
 
-        $intId = intval($_POST['idRol']);
+        $intId = intval($_POST['idrol']);
         $strRol = strClean($_POST['txtNombre']); //la funcion de strClean la creamos en los helpers para que limpie los caracteres
         $strDescripcion = strClean($_POST['txtDescripcion']);
         $intStatus = intval($_POST['listStatus']);
@@ -106,4 +106,23 @@ class Roles extends Controllers
         die();
     }
 
+    public function delRol()
+    {
+        if($_POST){
+            $intId = intval($_POST['idrol']);
+            $requestDelete = $this->model->deleteRol($intId);
+            if($requestDelete == 'ok')
+            {
+                $arrResponse = array('status' => true, 'msg' => 'The role has been removed');
+            }else if($requestDelete == 'exist'){
+                $arrResponse = array('status' => false, 'msg' => "You can not delete the role");
+            }else{
+                $arrResponse = array('status' => false, 'msg' => "Failed to delete role");
+            }
+
+            echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+        }
+
+        die();
+    }
 }

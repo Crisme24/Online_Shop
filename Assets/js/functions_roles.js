@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     formRol.reset();
                     swal("User Roles", objData.msg, "success");
                     tableRoles.api().ajax.reload(function(){
+                        fntEditRol();
                     });
                 }else {
                     swal("Error", objData.msg, "error")
@@ -83,6 +84,7 @@ function openModal() {
 
 window.addEventListener('load', function() {
     fntEditRol();
+    ftnDelRol();
 }, false);
 
 function fntEditRol() {
@@ -134,6 +136,57 @@ function fntEditRol() {
                 }
             }
 
+        });
+    });
+}
+
+function ftnDelRol(){
+    var btnDelRol = document.querySelectorAll(".btnDelRol");
+    btnDelRol.forEach(function(btnDelRol){
+        btnDelRol.addEventListener('click', function(){
+            var idrol = this.getAttribute("rl");
+
+            swal({
+                title: "Delete Role",
+                text: "Are you sure you want to delete this role?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete!",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            }, function(isConfirm){
+
+                if(isConfirm)
+                {
+                    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : ActiveXObject('Microsoft.XMLHTTP');
+                    var ajaxUrl = base_url+'/Roles/delRol/';
+                    var strData = "idrol="+idrol;
+                    request.open("POST", ajaxUrl, true);
+                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    request.send(strData);
+                    request.onreadystatechange = function() {
+                        if(request.readyState == 4 && request.status == 200) {
+
+                            //console.log(request.responseText);
+                            var objData = JSON.parse(request.responseText);
+
+                            if(objData.status)
+                            {
+                                swal("Deleted!", objData.msg, "success");
+                                tableRoles.api().ajax.reload(function(){
+                                    fntEditRol();
+                                    ftnDelRol();
+                                });
+
+                            }else{
+                                swal("Alert!", objData.msg, "error");
+                            }
+                        }
+                    }
+
+                }
+            });
         });
     });
 }
