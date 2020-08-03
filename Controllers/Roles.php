@@ -70,7 +70,7 @@ class Roles extends Controllers
     {
         //dep($_POST);
 
-        $intId = intval($_POST['idrol']);
+        $intId = intval($_POST['idRol']);
         $strRol = strClean($_POST['txtNombre']); //la funcion de strClean la creamos en los helpers para que limpie los caracteres
         $strDescripcion = strClean($_POST['txtDescripcion']);
         $intStatus = intval($_POST['listStatus']);
