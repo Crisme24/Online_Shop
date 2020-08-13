@@ -17,7 +17,13 @@
     <script type="text/javascript" src="<?= media(); ?>/js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/js/plugins/dataTables.bootstrap.min.js"></script>
 
-        <!-- Page specific javascripts-->
+    <!-- Page specific javascripts-->
+    <?php if($data['page_name'] == "user_rol") { ?>
         <script src="<?= media(); ?>/js/functions_roles.js"></script>
+    <?php } ?>
+
+    <?php if($data['page_name'] == "users") { ?>
+        <script src="<?= media(); ?>/js/functions_users.js"></script>
+    <?php } ?>
   </body>
 </html>

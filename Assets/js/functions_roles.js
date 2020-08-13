@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     swal("User Roles", objData.msg, "success");
                     tableRoles.api().ajax.reload(function(){
                         fntEditRol();
+                        ftnDelRol();
                     });
                 }else {
                     swal("Error", objData.msg, "error")

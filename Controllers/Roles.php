@@ -12,7 +12,7 @@ class Roles extends Controllers
     {
         $data['page_id'] = 3;
         $data['page_tag'] = "User Roles";
-        $data['page_name'] = "user rol";
+        $data['page_name'] = "user_rol";
         $data['page_title'] = "User Roles";
 
         $this->views->getView($this, "roles", $data);
