@@ -46,6 +46,19 @@ class Roles extends Controllers
         die();
     }
 
+    public function getSelectRoles()
+    {
+        $htmlOptions = "";
+        $arrData = $this->model->selectRoles();
+        if(count($arrData) > 0) {
+            for ($i = 0; $i < count($arrData); $i++) {
+                $htmlOptions .= '<option value="'.$arrData[$i]['id'].'">'.$arrData[$i]['name'].'</option>';
+            }
+        }
+        echo $htmlOptions;
+        die();
+    }
+
     public function getRol(int $id)
     {
         $intId = intval(strClean($id));
