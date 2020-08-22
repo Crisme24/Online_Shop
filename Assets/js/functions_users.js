@@ -1,3 +1,30 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var formUsuario = document.querySelector("#formUsuario");
+    formUsuario.onsubmit = function(e) {
+        e.preventDefault();
+        var strIdentification = document.querySelector('#txtIdentificacion').value;
+        var strFirstName = document.querySelector('#txtNombre').value;
+        var strLastName = document.querySelector('#txtApellido').value;
+        var strEmail = document.querySelector('#txtEmail').value;
+        var intPhoneNumber = document.querySelector('#txtTelefono').value;
+        var intUserRole = document.querySelector('#listRolid').value;
+        var strPassword = document.querySelector('#txtPassword').value;
+
+        if (strIdentification == '' || strFirstName == '' || strLastName == '' || strEmail == ''
+            || intPhoneNumber == '' || intUserRole == '')
+        {
+            swal('Alert', 'All fields are required', 'error');
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = base_url+'/Users/setUser';
+        var formData = new FormData(formUsuario);
+        request.open("POST", ajaxUrl, true);
+        request.send(formData);
+    }
+}, false);
+
 window.addEventListener('load', function() {
     fntRolesUsuario();
 }, false);

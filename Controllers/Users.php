@@ -17,4 +17,12 @@ class Users extends Controllers
 
         }
 
+    public function setUser()
+    {
+        if ($_POST) {
+            //dep($_POST);
+            echo $_POST['txtIdentificacion'];
+        }
+        die();
+    }
 }
