@@ -31,6 +31,16 @@
                       <th>STATUS</th>
                       <th>ACTIONS</th>
                     </tr>
+                    <tr>
+                      <th>1</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                      <th>prueba</th>
+                    </tr>
                   </thead>
                   <tbody>
                   </tbody>

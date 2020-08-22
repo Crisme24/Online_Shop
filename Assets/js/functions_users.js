@@ -1,3 +1,5 @@
+var tableUsuarios;
+
 document.addEventListener('DOMContentLoaded', function() {
     var formUsuario = document.querySelector("#formUsuario");
     formUsuario.onsubmit = function(e) {
@@ -22,6 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
         var formData = new FormData(formUsuario);
         request.open("POST", ajaxUrl, true);
         request.send(formData);
+        request.onreadystatechange = function() {
+            if(request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status) {
+                    $('#modalFormUsuario').modal("hide");
+                    formUsuario.reset();
+                    swal('Users', objData.msg, 'success');
+                    tableUsuarios.api().ajax.reload(function() {
+                    });
+                }else{
+                    swal('Error', objData.msg, 'error');
+                }
+            }
+        }
     }
 }, false);
 
