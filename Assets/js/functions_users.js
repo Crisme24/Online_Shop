@@ -1,6 +1,33 @@
 var tableUsuarios;
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    tableUsuarios = $('#tableUsuarios').dataTable({
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/English.json"
+        },
+        "ajax":{
+            "url":  " "+base_url+"/Users/getUsers",
+            "dataSrc":""
+        },
+        "columns":[
+            {data:"idpersona"},
+            {data:"nombres"},
+            {data:"apellidos"},
+            {data:"email_user"},
+            {data:"telefono"},
+            {data:"name"},
+            {data:"status"},
+            {data:"options"}
+        ],
+        "resonsieve":"true",
+        "bDestroy": true,
+        "iDisplayLength": 10,
+        "order":[[0,"desc"]]
+    });
+
     var formUsuario = document.querySelector("#formUsuario");
     formUsuario.onsubmit = function(e) {
         e.preventDefault();

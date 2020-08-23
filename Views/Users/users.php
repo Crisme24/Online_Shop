@@ -10,7 +10,7 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>/roles"><?php echo $data['page_title']; ?></a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>/users"><?php echo $data['page_title']; ?></a></li>
         </ul>
       </div>
 
@@ -30,16 +30,6 @@
                       <th>ROLE</th>
                       <th>STATUS</th>
                       <th>ACTIONS</th>
-                    </tr>
-                    <tr>
-                      <th>1</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
-                      <th>prueba</th>
                     </tr>
                   </thead>
                   <tbody>

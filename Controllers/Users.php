@@ -60,4 +60,28 @@ class Users extends Controllers
         }
         die();
     }
+
+    public function getUsers()
+    {
+        $arrData = $this->model->selectUsers();
+        //dep($arrData);
+
+        for ($i=0; $i < count($arrData) ; $i++) {
+
+            if($arrData[$i]['status'] == 1)
+            {
+                $arrData[$i]['status'] = '<span class="badge badge-success">Active</span>';
+            } else {
+                $arrData[$i]['status'] = '<span class="badge badge-danger">Inactive</span>';
+            }
+            $arrData[$i]['options'] = '<div class="text-center">
+            <button class="btn btn-outline-dark btn-sm btnViewUsuario" us="'.$arrData[$i]['idpersona'].'" title="Ver usuario"><i class="fas fa-eye"></i></button>
+            <button class="btn btn-outline-success btn-sm btnEditUsuario" us="'.$arrData[$i]['idpersona'].'" title="Editar usuario"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-outline-danger btn-sm btnDelUsuario" us="'.$arrData[$i]['idpersona'].'" title="Eliminar usuario"><i class="fas fa-trash-alt"></i></>
+            </div>';
+        }
+
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        die();
+    }
 }

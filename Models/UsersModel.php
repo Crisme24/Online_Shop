@@ -56,4 +56,17 @@ class UsersModel extends Mysql
         return $return;
     }
 
+    public function selectUsers()
+    {
+        $sql = "SELECT p.idpersona, p.identificacion, p.nombres, p.apellidos, p.telefono, p.email_user, p.status, r.name
+                FROM persona p
+                INNER JOIN role r
+                ON p.rolid = r.id
+                WHERE p.status != 0";
+
+        $request = $this->select_all($sql);
+
+        return $request;
+    }
+
 }
